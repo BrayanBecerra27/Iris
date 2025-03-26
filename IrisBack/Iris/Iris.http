@@ -1,0 +1,6 @@
+@Iris_HostAddress = http://localhost:5286
+
+GET {{Iris_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
