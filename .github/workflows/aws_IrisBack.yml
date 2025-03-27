@@ -19,9 +19,9 @@ jobs:
         with:
           dotnet-version: '8.0.x'  
       - name: Install dependencies
-        run: dotnet restore Iris/Iris.csproj
+        run: dotnet restore IrisBack/Iris/Iris.csproj
       - name: Build
-        run: dotnet build Iris/Iris.csproj --configuration Release --no-restore
+        run: dotnet build IrisBack/Iris/Iris.csproj --configuration Release --no-restore
       
       - name: Checkout repo
         uses: actions/checkout@v3       
