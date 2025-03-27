@@ -24,8 +24,5 @@ namespace IrisCore.Entities
         public bool IsFavorite { get; set; }
         [DynamoDBProperty]
         public DateTime CreationDate { get; set; }
-        //AKIARYAZAGN37O6UU5TS
-        //9e9lGGLdhdbruCGoP+TXLZfWMgCpJyX3jAiWcqQd
-
     }
 }

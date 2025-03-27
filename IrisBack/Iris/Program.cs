@@ -36,6 +36,16 @@ builder.Services.AddAuthentication(options =>
     };
 });
 
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy(name: "MyAllowSpecificOrigins",
+                      policy =>
+                      {
+                          policy.AllowAnyOrigin();
+                          policy.AllowAnyHeader();
+                          policy.AllowAnyMethod();
+                      });
+});
 
 builder.Services.SwaggerSettings();
 // Configurar AWS y DynamoDB
@@ -62,6 +72,7 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
+app.UseCors("MyAllowSpecificOrigins");
 app.UseAuthorization();
 
 app.UseMiddleware<GlobalHandlerException>();

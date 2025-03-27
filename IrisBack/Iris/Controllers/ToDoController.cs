@@ -44,11 +44,11 @@ namespace Iris.Controllers
             return Ok(new ResultResponse<bool> { Data = await _iTaskService.DeleteTask(idTask) });
         }
 
-        [HttpPut("{idTask}/favourite")]
+        [HttpPut("{idTask}/favorite")]
         [Authorize]
-        public async Task<IActionResult> MarkTaskFavourite(string idTask, bool favourite)
+        public async Task<IActionResult> MarkTaskFavourite(string idTask, bool favorite)
         {
-            return Ok(new ResultResponse<bool> { Data = await _iTaskService.MarkTaskFavourite(idTask, favourite)});
+            return Ok(new ResultResponse<bool> { Data = await _iTaskService.MarkTaskFavourite(idTask, favorite)});
         }
 
         [HttpPut("{idTask}/done")]
