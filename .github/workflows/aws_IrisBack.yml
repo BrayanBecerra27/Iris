@@ -48,7 +48,7 @@ jobs:
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           AWS_REGION: 'us-east-1'
           APPLICATION_NAME: 'iris-todo'
-          ENVIRONMENT_NAME: 'iris-todo-env'
+          ENVIRONMENT_NAME: 'Iris-todo-env'
           IMAGE_TAG: 'latest'
         run: |
           aws elasticbeanstalk update-environment --application-name $APPLICATION_NAME --environment-name $ENVIRONMENT_NAME --version-label $GITHUB_SHA --option-settings Namespace=aws:elasticbeanstalk:container:docker,OptionName=Image,Value=120311526263.dkr.ecr.us-east-2.amazonaws.com/iris:$IMAGE_TAG
