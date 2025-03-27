@@ -26,7 +26,7 @@ jobs:
           dotnet-version: '8.x'
 
       - name: Restore dependencies
-        run: dotnet restore ./Backend/Iris/Iris.csproj
+        run: dotnet restore ./IrisBack/Iris/Iris.csproj
 
       - name: Build with dotnet
         run: dotnet build ./IrisBack/Iris/Iris.csproj --configuration Release
