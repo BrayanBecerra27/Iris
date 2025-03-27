@@ -11,7 +11,7 @@ import { numberToString } from 'igniteui-angular-core';
   providedIn: 'root'
 })
 export class ServicesTodoService {
-  baseURL: string = "http://localhost:5286";
+  baseURL: string = "https://iris-todo-dev-ctcvdmf9a2ejd5et.canadaeast-01.azurewebsites.net";
 
   constructor(private http: HttpClient) { }
   GetAuthToken(name: string, password: string): Observable<any> {
