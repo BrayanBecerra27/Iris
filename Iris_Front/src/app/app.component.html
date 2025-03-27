@@ -1,0 +1,69 @@
+<div class="container-fluid" style="background-color: rgb(239, 235, 235); min-height: 100vh;">   
+  <div class="container" style="max-width: 90%; margin: 0 auto;">
+    <app-navbar></app-navbar>
+  <div style="margin: 0 15px;"><nav class="navbar navbar-expand-lg navbar-light bg-light mb-5">
+    <div class="container mt-5">
+      <span class="navbar-brand" style="color: rgba(32, 90, 52, 0.852); font-size: 30px; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif, Helvetica, sans-serif;">To do List</span>
+    <div>
+      <igx-simple-combo class="combo" style="color: rgba(32, 90, 52, 0.852);"
+            [data]="lData"        
+            (selectionChanging)="selectChanging($event)"
+            [(ngModel)]="todoListType"
+            [type]="'border'"
+        ></igx-simple-combo>
+      
+    </div>
+      <div>
+              <div class="card-body">
+                  <form  (submit)="onSubmit()">
+                      <div class="form-group">
+                          <igx-input-group type="border" class="combo">
+                              <input igxInput name="PlaceHolder" type="text" [(ngModel)]="titleToDo"/>
+                              <label igxLabel for="PlaceHolder">PlaceHolder</label>
+                              <igx-suffix>
+                                  <div class="button-sample">
+                                      <button igxRipple ><igx-icon family="material" style="background-color: white; background: fixed; border: 0px; color:rgba(32, 90, 52, 0.852)">add</igx-icon></button>
+                                  </div>
+                              </igx-suffix>
+                          </igx-input-group>
+                          
+                      </div>
+                  </form>
+                  <div *ngIf="!!todoListType" class="navbar-brand" style="color: rgba(32, 90, 52, 0.852); font-size: 30px; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif, Helvetica, sans-serif;">
+                    <div>{{ todoListType }}</div>
+                </div>
+                <hr style="border: 1px solid rgba(32, 90, 52, 0.852); margin: 20px 0;">
+                  <div *ngIf="todoService.todoList.length == 0" class="float-center" style="color: rgba(32, 90, 52, 0.852); font-size: 20px; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif, Helvetica, sans-serif;">No hay tareas de este tipo.</div>    
+                  <div class="todoList">
+                    <div class = "icon" >
+                      
+                        <ul class="list-group table" style="font-family: 'Arial Narrow', Arial, sans-serif, Helvetica, sans-serif;" >
+                        <li *ngFor="let todo of todoService.todoList">
+                          <input 
+                          style="background-color: rgb(239, 235, 235); border: 0px; border-radius: 5px; font-size: 30px;"  
+                          type="checkbox" 
+                          [checked]="todo.isCompleted" 
+                          (change)="onChange(todo.id, todo.isCompleted)">
+                          <strong>{{" " + todo.description}}</strong>
+                            <div class="icon" style="display: flex; align-items: center; gap: 10px;">
+                              <span (click)='onChangeFavorite(todo.id, todo.isFavorite)'>
+                                <i 
+                                [style.color]="todo.isFavorite ? 'gold' : 'white'" 
+                                style="background-color: rgb(239, 235, 235); border: 0px; border-radius: 5px; font-size: 30px; font-style: normal; cursor: pointer;" 
+                                class="fa-solid fa-star">
+                                ★
+                                </i>
+                              </span>
+                              <span (click)='deleteTodo(todo.id)'>
+                                <i style="color: red; background-color: rgb(239, 235, 235); border: 0px; border-radius: 5px; font-size: 30px; font-style: normal; cursor: pointer;" class="fa-solid fa-times-circle">x</i>
+                              </span>
+                            </div>
+                        </li>
+                      </ul>
+                    </div>
+                </div>
+            </div>
+          </div>
+    </div>
+    </nav>
+</div>

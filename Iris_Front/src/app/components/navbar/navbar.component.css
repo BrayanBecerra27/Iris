@@ -1,0 +1,19 @@
+header {
+    height: 80px; /* Establece la altura de la barra de navegación */
+    background-color: #30beb9; /* Establece el color de fondo de la barra de navegación */
+  }
+  
+  .nav-container {
+    max-width: 1200px; /* Establece la anchura máxima del contenedor de navegación */
+    margin: 0 auto; /* Centra el contenedor de navegación horizontalmente */
+    height: 100%; /* Establece la altura del contenedor de navegación */
+    display: flex; /* Establece el modo de visualización del contenedor de navegación a flex */
+    justify-content: center; /* Centra el contenido horizontalmente */
+    align-items: center; /* Centra el contenido verticalmente */
+  }
+  
+  .logo {
+    max-height: 50px; /* Establece la altura máxima del logo */
+    margin: 0 auto; /* Centra el logo horizontalmente */
+  }
+  
