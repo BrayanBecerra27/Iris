@@ -15,7 +15,7 @@ WORKDIR /src
 COPY ["IrisBack/Iris/Iris.csproj", "Iris/"]
 COPY ["IrisBack/IrisCore/IrisCore.csproj", "IrisCore/"]
 COPY ["IrisBack/IrisInfraestructure/IrisInfraestructure.csproj", "IrisInfraestructure/"]
-RUN dotnet restore "IrisBack/Iris/Iris.csproj"
+RUN dotnet restore "Iris/Iris.csproj"
 COPY . .
 WORKDIR "/src/IrisBack"
 RUN dotnet build "./Iris.csproj" -c $BUILD_CONFIGURATION -o /app/build
