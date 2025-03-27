@@ -15,9 +15,9 @@ WORKDIR /src
 COPY ["IrisBack/Iris/Iris.csproj", "Iris/"]
 COPY ["IrisBack/IrisCore/IrisCore.csproj", "IrisCore/"]
 COPY ["IrisBack/IrisInfraestructure/IrisInfraestructure.csproj", "IrisInfraestructure/"]
-RUN dotnet restore "./Iris.csproj"
+RUN dotnet restore "IrisBack/Iris.csproj"
 COPY . .
-WORKDIR "/src/Iris"
+WORKDIR "/src/IrisBack"
 RUN dotnet build "./Iris.csproj" -c $BUILD_CONFIGURATION -o /app/build
 
 # Esta fase se usa para publicar el proyecto de servicio que se copiará en la fase final.
