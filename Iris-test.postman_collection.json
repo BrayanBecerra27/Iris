@@ -1,0 +1,233 @@
+{
+	"info": {
+		"_postman_id": "70c8b3db-7a27-4630-8afc-23a02649dde6",
+		"name": "Iris-test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "10317718"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\" : \"usuario\",\r\n    \"password\" : \"1234\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://iris-todo-dev-ctcvdmf9a2ejd5et.canadaeast-01.azurewebsites.net/auth/login",
+					"protocol": "https",
+					"host": [
+						"iris-todo-dev-ctcvdmf9a2ejd5et",
+						"canadaeast-01",
+						"azurewebsites",
+						"net"
+					],
+					"path": [
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetAll",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "oauth2",
+					"oauth2": [
+						{
+							"key": "addTokenTo",
+							"value": "header",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://iris-todo-dev-ctcvdmf9a2ejd5et.canadaeast-01.azurewebsites.net/ToDo",
+					"protocol": "https",
+					"host": [
+						"iris-todo-dev-ctcvdmf9a2ejd5et",
+						"canadaeast-01",
+						"azurewebsites",
+						"net"
+					],
+					"path": [
+						"ToDo"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "NewTask",
+			"request": {
+				"auth": {
+					"type": "oauth2",
+					"oauth2": [
+						{
+							"key": "addTokenTo",
+							"value": "header",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": " {\r\n    \"id\": \"1e8891d6-8355-42d6-8746-fd3440f2003f\",\r\n    \"description\": \"Task 4 - Postman\",\r\n    \"isCompleted\": true,\r\n    \"isFavorite\": true\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://iris-todo-dev-ctcvdmf9a2ejd5et.canadaeast-01.azurewebsites.net/ToDo",
+					"protocol": "https",
+					"host": [
+						"iris-todo-dev-ctcvdmf9a2ejd5et",
+						"canadaeast-01",
+						"azurewebsites",
+						"net"
+					],
+					"path": [
+						"ToDo"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "MarkFavorite",
+			"request": {
+				"auth": {
+					"type": "oauth2",
+					"oauth2": [
+						{
+							"key": "addTokenTo",
+							"value": "header",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "1e8891d6-8355-42d6-8746-fd3440f2003f",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://iris-todo-dev-ctcvdmf9a2ejd5et.canadaeast-01.azurewebsites.net/ToDo/1e8891d6-8355-42d6-8746-fd3440f2003f/favorite?favorite=true",
+					"protocol": "https",
+					"host": [
+						"iris-todo-dev-ctcvdmf9a2ejd5et",
+						"canadaeast-01",
+						"azurewebsites",
+						"net"
+					],
+					"path": [
+						"ToDo",
+						"1e8891d6-8355-42d6-8746-fd3440f2003f",
+						"favorite"
+					],
+					"query": [
+						{
+							"key": "favorite",
+							"value": "true"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "MarkCompleted",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "https://iris-todo-dev-ctcvdmf9a2ejd5et.canadaeast-01.azurewebsites.net/ToDo/1e8891d6-8355-42d6-8746-fd3440f2003f/favorite?completed=true",
+					"protocol": "https",
+					"host": [
+						"iris-todo-dev-ctcvdmf9a2ejd5et",
+						"canadaeast-01",
+						"azurewebsites",
+						"net"
+					],
+					"path": [
+						"ToDo",
+						"1e8891d6-8355-42d6-8746-fd3440f2003f",
+						"favorite"
+					],
+					"query": [
+						{
+							"key": "completed",
+							"value": "true"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete",
+			"request": {
+				"auth": {
+					"type": "oauth2",
+					"oauth2": [
+						{
+							"key": "addTokenTo",
+							"value": "header",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://iris-todo-dev-ctcvdmf9a2ejd5et.canadaeast-01.azurewebsites.net/ToDo/fc7a24ad-26c6-4a19-9abf-78b471150610",
+					"protocol": "https",
+					"host": [
+						"iris-todo-dev-ctcvdmf9a2ejd5et",
+						"canadaeast-01",
+						"azurewebsites",
+						"net"
+					],
+					"path": [
+						"ToDo",
+						"fc7a24ad-26c6-4a19-9abf-78b471150610"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
