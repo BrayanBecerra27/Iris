@@ -46,12 +46,12 @@ jobs:
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          AWS_REGION: 'us-east-2'  # Cambia esto a tu región de AWS
-          APPLICATION_NAME: 'iris-todo'  # Cambia esto al nombre de tu aplicación en Elastic Beanstalk
-          ENVIRONMENT_NAME: 'iris-todo-env'  # Cambia esto al nombre de tu entorno en Elastic Beanstalk
+          AWS_REGION: 'us-east-2'
+          APPLICATION_NAME: 'iris-todo'
+          ENVIRONMENT_NAME: 'iris-todo-env'
+          IMAGE_TAG: 'latest'
         run: |
-          aws elasticbeanstalk create-application-version --application-name $APPLICATION_NAME --version-label $GITHUB_SHA --source-bundle S3Bucket=$APPLICATION_NAME,S3Key=deploy.zip
-          aws elasticbeanstalk update-environment --environment-name $ENVIRONMENT_NAME --version-label $GITHUB_SHA
+          aws elasticbeanstalk update-environment --application-name $APPLICATION_NAME --environment-name $ENVIRONMENT_NAME --version-label $GITHUB_SHA --option-settings Namespace=aws:elasticbeanstalk:container:docker,OptionName=Image,Value=120311526263.dkr.ecr.us-east-2.amazonaws.com/iris:$IMAGE_TAG
     
     
       
