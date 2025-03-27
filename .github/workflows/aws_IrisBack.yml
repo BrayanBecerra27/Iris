@@ -19,9 +19,9 @@ jobs:
         with:
           dotnet-version: '8.0.x'  
       - name: Install dependencies
-        run: dotnet restore IrisBack/Iris.csproj
+        run: dotnet restore IrisBack/Iris/Iris.csproj
       - name: Build
-        run: dotnet build Iris/IrisBack.csproj --configuration Release --no-restore
+        run: dotnet build IrisBack/Iris/Iris.csproj --configuration Release --no-restore
       
       - name: Checkout repo
         uses: actions/checkout@v3       
@@ -39,7 +39,7 @@ jobs:
 
       - name: Build, tag, and push docker image to Amazon ECR        
         run: |
-          docker build -f Iris/Dockerfile -t 120311526263.dkr.ecr.us-east-2.amazonaws.com/iris .
+          docker build -f IrisBack/Iris/Dockerfile -t 120311526263.dkr.ecr.us-east-2.amazonaws.com/iris .
           docker push 120311526263.dkr.ecr.us-east-2.amazonaws.com/iris
           
     
