@@ -39,7 +39,7 @@ jobs:
 
       - name: Build, tag, and push docker image to Amazon ECR        
         run: |
-          docker build -f Iris\IrisBack\Iris\Dockerfile -t 120311526263.dkr.ecr.us-east-2.amazonaws.com/iris .
+          docker build -f IrisBack/Iris/Dockerfile -t 120311526263.dkr.ecr.us-east-2.amazonaws.com/iris .
           docker push 120311526263.dkr.ecr.us-east-2.amazonaws.com/iris
           
     
