@@ -12,9 +12,9 @@ EXPOSE 8081
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
-COPY ["Iris/Iris.csproj", "Iris/"]
-COPY ["IrisCore/IrisCore.csproj", "IrisCore/"]
-COPY ["IrisInfraestructure/IrisInfraestructure.csproj", "IrisInfraestructure/"]
+COPY ["IrisBack/Iris/Iris.csproj", "Iris/"]
+COPY ["IrisBack/IrisCore/IrisCore.csproj", "IrisCore/"]
+COPY ["IrisBack/IrisInfraestructure/IrisInfraestructure.csproj", "IrisInfraestructure/"]
 RUN dotnet restore "./Iris.csproj"
 COPY . .
 WORKDIR "/src/."
@@ -30,5 +30,3 @@ FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
 ENTRYPOINT ["dotnet", "Iris.dll"]
-
-C:\Users\blbecerra\Documents\Iris\IrisBack\IrisInfraestructure\IrisInfraestructure.csproj
