@@ -57,18 +57,22 @@ Configurar las siguientes variables en el archivo appsetting.json
     "Jwt": {
         "Key": "llave de 512 bits",
         "Issuer": "url del api",
-        "Audience": "url del api"
-        
+        "Audience": "url del api"   
     },
-  "AWS": {
-    "Profile": "default",
-    "Region": "región donde se encuentra la tabla de DynamoDB"
-  }
+    "AWS": {
+        "Profile": "default",
+        "Region": "región donde se encuentra la tabla de DynamoDB"
+    }
+  
+  
 
 y las siguientes en launchSettings.json
 
-  "AWS_ACCESS_KEY_ID": "su AWS_ACCESS_KEY_ID",
-  "AWS_SECRET_ACCESS_KEY": "su AWS_SECRET_ACCESS_KEY"
+    "environmentVariables": {
+       "AWS_ACCESS_KEY_ID": "su AWS_ACCESS_KEY_ID",
+       "AWS_SECRET_ACCESS_KEY": "su AWS_SECRET_ACCESS_KEY"
+    }
+ 
   
 Sobre el path ./IrisBack/Iris
 
@@ -79,10 +83,11 @@ Ejecutar aplicación.
 Se adjunta la collection de Postman con los Request para las funcionalidades mencionadas en la sección 1. 
 La Api cuenta con autienticación JWT.
 Para esto se necesita consumir el servicio de '{baseurl}/auth/login'. Con el siguiente payload:
-{
-    "username" : "usuario",
-    "password" : "1234"
-}
+
+    {
+       "username" : "usuario",
+       "password" : "1234"
+    }
 
 La aplicación no cuenta con gestión de usuarios, por lo cuál se simular con estas credenciales el acceso.
 
